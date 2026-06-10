@@ -1,0 +1,60 @@
+The IconFont.Maui.SourceGenerator simplifies .NET MAUI development by auto-generating strongly-typed C# constants from .ttf or .otf font files. 
+This eliminates the need to manually copy-paste fragile Unicode escape sequences (e.g., &#xF52A;).1. 
+
+Project Setup
+
+Add the NuGet package to your .csproj file as an analyzer and include your icon font file as a MauiFont.
+
+xml
+<!-- Install the Source Generator -->
+<PackageReference Include="IconFont.Maui.SourceGenerator" Version="2.0.0" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+
+<!-- Add your font file and Alias it (e.g., FluentIconsRegular) -->
+<ItemGroup>
+    <MauiFont Include="Resources/Fonts/FluentIcons-Regular.ttf" Alias="FluentIconsRegular" />
+</ItemGroup>
+
+Verwende Code mit Vorsicht.
+
+2. XAML Usage
+
+Once the project builds, the generator will produce a strongly-typed class based on your Alias (e.g., FluentIconsRegular). 
+You can reference the font and glyphs without magic strings.
+
+xml
+
+<ContentPage xmlns="http://microsoft.com"
+             xmlns:x="http://microsoft.com"
+             xmlns:icons="clr-namespace:YourProjectNamespace;assembly=YourProjectNamespace"
+             x:Class="YourProject.MainPage">
+
+    <VerticalStackLayout>
+        <!-- Use the generated C# constants directly in XAML -->
+        <Label Text="{x:Static icons:FluentIconsRegular.Home24}"
+               FontFamily="{x:Static icons:FluentIconsRegular.FontFamily}"
+               FontSize="32" />
+    </VerticalStackLayout>
+
+</ContentPage>
+
+Verwende Code mit Vorsicht.
+
+3. C# Usage
+
+You can also reference the generated font classes directly in your code-behind, 
+or use pre-packaged libraries like IconFont.Maui.FluentIcons to easily generate a FontImageSource dynamically.
+
+csharp
+
+// Example creating a FontImageSource in C#
+FontImageSource myIcon = FluentIcons.Create(
+    FluentIconsRegular.Home24, 
+    Colors.Orange, 
+    32
+);
+
+Verwende Code mit Vorsicht.
+
+For more comprehensive templates and ready-to-use icon packs, explore the jfversluis/IconFont.Maui.Template 
+or view the Blog on Icon Fonts in .NET MAUI for a full setup walkthrough.
+
