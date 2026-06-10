@@ -1,9 +1,5 @@
 ﻿using IconFont.Maui.FluentIcons;
 using Microsoft.Extensions.Logging;
-using IconFont.Maui.FluentIcons;
-using Microsoft.Extensions.Logging;
-
-
 
 namespace IconFontMauiApp
 {
@@ -21,7 +17,6 @@ namespace IconFontMauiApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("FluentIconsRegular.ttf", "FluentIconsRegular");
                 });
 
 #if DEBUG

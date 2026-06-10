@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
              x:Class="IconFontMauiApp.MainPage">
 
     <ScrollView>
@@ -14,15 +15,49 @@
                 SemanticProperties.Description="dot net bot in a submarine number ten" />
 
             <Label
-                Text="Hello, World!"
+                Text="IconFont.Maui.FluentIcons"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Spacing="24">
+                <Image WidthRequest="48" HeightRequest="48">
+                    <Image.Source>
+                        <FontImageSource
+                            Glyph="{x:Static icons:FluentIconsRegular.Home24}"
+                            FontFamily="{x:Static icons:FluentIconsRegular.FontFamily}"
+                            Size="48"
+                            Color="#512BD4" />
+                    </Image.Source>
+                </Image>
+
+                <Image WidthRequest="48" HeightRequest="48">
+                    <Image.Source>
+                        <FontImageSource
+                            Glyph="{x:Static icons:FluentIconsFilled.Heart24}"
+                            FontFamily="{x:Static icons:FluentIconsFilled.FontFamily}"
+                            Size="48"
+                            Color="Red" />
+                    </Image.Source>
+                </Image>
+
+                <Image WidthRequest="48" HeightRequest="48">
+                    <Image.Source>
+                        <FontImageSource
+                            Glyph="{x:Static icons:FluentIconsFilled.Star24}"
+                            FontFamily="{x:Static icons:FluentIconsFilled.FontFamily}"
+                            Size="48"
+                            Color="Orange" />
+                    </Image.Source>
+                </Image>
+            </HorizontalStackLayout>
+
             <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
+                Text="The icons above are rendered from the Fluent Icons package."
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                SemanticProperties.Description="The icons above are rendered from the Fluent Icons package." />
 
             <Button
                 x:Name="CounterBtn"
